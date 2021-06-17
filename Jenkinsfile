@@ -1,21 +1,13 @@
-pipeline {
-  agent {
-        docker { image 'node:14-alpine' }
+node {
+    checkout scm
+
+    docker.withRegistry('https://hub.docker.com/u/mariapittari95', 'dockerHub') {
+
+        def customImage = docker.build("nginximage:0.1")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+      
+        docker.image('nginximage:0.1').withRun('-p 80:80')
     }
-  stages {
-    stage("build") {
-      steps {
-        sh """
-          docker build -t nginx_image .
-        """
-      }
-    }
-    stage("run") {
-      steps {
-        sh """
-          docker run --rm nginx_image
-        """
-      }
-    }
-  }
 }
