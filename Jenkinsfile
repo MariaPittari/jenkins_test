@@ -1,9 +1,9 @@
 node {
     checkout scm
 
-    docker.withRegistry('http://0.0.0.0:5000') {
+    docker.withRegistry('http://0.0.0.0:5000/v2') {
 
-        def customImage = docker.build("v2/nginximage")
+        def customImage = docker.build("nginximage")
 
         /* Push the container to the custom Registry */
         customImage.push()
