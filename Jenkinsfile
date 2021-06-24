@@ -8,6 +8,6 @@ node {
         /* Push the container to the custom Registry */
         customImage.push()
       
-        sudo docker.image('nginximage:0.1').withRun('-p 80:80')
+        docker.image('nginximage:0.1').withRun('-p 80:80')
     }
 }
