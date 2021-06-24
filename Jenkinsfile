@@ -1,7 +1,7 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://0.0.0.0:5000', 'dockerHub') {
+    docker.withRegistry('https://0.0.0.0:5000') {
 
         def customImage = docker.build("prova/nginximage")
 
