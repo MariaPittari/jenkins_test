@@ -3,7 +3,7 @@ node {
 
     docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
-        def customImage = docker.build("prova/nginximage")
+        def customImage = docker.build("mariapittari95/prova/nginximage")
 
         /* Push the container to the custom Registry */
         customImage.push()
