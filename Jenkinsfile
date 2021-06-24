@@ -6,8 +6,8 @@ node {
         def customImage = sudo docker.build("prova/nginximage")
 
         /* Push the container to the custom Registry */
-        customImage.push()
+        //customImage.push()
       
-        docker.image('nginximage:0.1').withRun('-p 80:80')
+        //docker.image('nginximage:0.1').withRun('-p 80:80')
     }
 }
