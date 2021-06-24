@@ -1,9 +1,9 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+    docker.withRegistry('localhost:5000', 'dockerHub') {
 
-        def customImage = docker.build("mariapittari95/prova/nginximage")
+        def customImage = docker.build("prova/nginximage")
 
         /* Push the container to the custom Registry */
         customImage.push()
